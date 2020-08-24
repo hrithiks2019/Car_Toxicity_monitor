@@ -1,0 +1,32 @@
+Wiring :
+
+1.] LCD  to Arduino UNO:
+
+LCD               UNO
+
+VSS ------------ GND
+VDD ------------ +5V
+RS  ------------ 8
+E   ------------ 9
+D4  ------------ 4
+D5  ------------ 5
+D6  ------------ 6
+D7  ------------ 7
+
+
+2.] MQ-135 Sensor to arduino uno:
+
+sensor:           UNO:
+
+ VCC ------------ VIN
+ GND ------------ GND
+ AOUT ----------- A1
+
+
+3.] Mq 7 Sensor to arduino uno:
+
+sensor:             UNO:
+
+ VCC ------------- 5v
+ GND ------------- GND
+ AOUT ------------ A0
