@@ -10,8 +10,9 @@ CO2Sensor co2Sensor(A1, 0.99, 100);
 
 
 void setup() {
-	pinMode(13, OUTPUT); // Buzzer Pin
-    	Serial.begin(9600);
+	
+	pinMode(13, OUTPUT);
+  Serial.begin(9600);
 	Serial.println("CAiR Monitoring System");
 	delay(20);
 	Serial.println("=== Initialized ===");
@@ -29,7 +30,6 @@ void loop() {
     
 	int co_val = mq7.getPPM();
 	int co2_val = co2Sensor.read();
-	delay(100);
 	if (co_val > 100)
 	{
 		Serial.println("Air Toxicity is High");
@@ -52,25 +52,20 @@ void loop() {
 		lcd.print("CAiR Monitor");
 		Serial.println("Air Toxicity is LOW");
 		Serial.println("Carbon di-oxide and Carbon Monoxide lvls are Below Threshold");
-		digitalWrite(13, LOW);
 	}
 	
-	lcd.setCursor(1,1);
+	lcd.setCursor(0,1);
 	lcd.print("Co:");
 	lcd.print(co_val);
 	lcd.print(" PPm");
 	Serial.print("Co lvl:");
 	Serial.print(co_val);
-	Serial.println(" PPM");
 	lcd.print(" ");
-	lcd.setCursor(1,1);
+	lcd.setCursor(9,1);
 	lcd.print("Co2:");
 	lcd.print(co2_val);
-	lcd.print(" PPm");
-	lcd.print("  .");
 	Serial.print("Co2 lvl:");
 	Serial.print(co2_val);
 	Serial.println(" PPM");
-	lcd.clear();
-	delay(400);
+	delay(1000);
 }
