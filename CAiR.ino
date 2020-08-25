@@ -10,8 +10,8 @@ CO2Sensor co2Sensor(A1, 0.99, 100);
 
 
 void setup() {
-	pinMode(7, OUTPUT); // Buzzer Pin
-    Serial.begin(9600);
+	pinMode(13, OUTPUT); // Buzzer Pin
+    	Serial.begin(9600);
 	Serial.println("CAiR Monitoring System");
 	delay(20);
 	Serial.println("=== Initialized ===");
@@ -21,7 +21,7 @@ void setup() {
 	lcd.home();
 	lcd.setCursor(2,0);
 	lcd.print("CAiR Monitor");
-	digitalWrite(7, LOW);
+	digitalWrite(13, LOW);
 
 }
 
@@ -34,7 +34,7 @@ void loop() {
 	{
 		Serial.println("Air Toxicity is High");
 		Serial.println("High Levels of Carbon Monoxide is found");
-		digitalWrite(7, HIGH);
+		digitalWrite(13, HIGH);
 		lcd.setCursor(2,0);
 		lcd.print("Alert: Co high");
 	}
@@ -42,7 +42,7 @@ void loop() {
 	{
 		Serial.println("Air Toxicity is High");
 		Serial.println("High Levels of Carbon di-oxide is found");
-		digitalWrite(7, HIGH);
+		digitalWrite(13, HIGH);
 		lcd.setCursor(2,0);
 		lcd.print("Alert: Co2 high");
 	}
@@ -52,6 +52,7 @@ void loop() {
 		lcd.print("CAiR Monitor");
 		Serial.println("Air Toxicity is LOW");
 		Serial.println("Carbon di-oxide and Carbon Monoxide lvls are Below Threshold");
+		digitalWrite(13, LOW);
 	}
 	
 	lcd.setCursor(1,1);
